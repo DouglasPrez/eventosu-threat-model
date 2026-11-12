@@ -5,12 +5,13 @@
 - Carlos Daniel Martínez García
 
 ## Alcance
-Analizo el diseño de EventosU: React servido desde un CDN, API Node.js con JWT, PostgreSQL, bucket, app de puerta, panel /admin e integraciones con Microsoft Entra ID, pagos y correo. Incluyo registro, recuperación, inscripciones, pagos, entradas QR, afiches, exportaciones CSV y auditoría.
+Analizamos el diseño de EventosU: React servido desde un CDN, API Node.js con JWT, PostgreSQL, bucket, app de puerta, panel /admin e integraciones con Microsoft Entra ID, pagos y correo. Incluimos registro, recuperación, inscripciones, pagos, entradas QR, afiches, exportaciones CSV y auditoría.
 
 Quedan fuera los sistemas internos de proveedores, datos de tarjetas y controles físicos ajenos a la aplicación. Es un ejercicio de diseño: los controles y pruebas están propuestos, no implementados. Los supuestos completos están en el informe.
 
-## Estado de la entrega
-Consulta el [informe](docs/informe.pdf), la [tabla de amenazas](docs/amenazas.csv) y la [revisión de Carlos](docs/revision.md). La [lista de cierre](docs/PENDIENTES.md) registra las verificaciones y el paso de envío pendiente. Las observaciones técnicas de Carlos se resolvieron en la versión final.
+## Contenido del trabajo
+
+En el [informe](docs/informe.pdf) desarrollamos el alcance, los diagramas, las amenazas, el árbol de ataque y la priorización de riesgos. La [tabla de amenazas](docs/amenazas.csv) contiene el detalle de cada escenario y su mitigación. En la [revisión](docs/revision.md) documentamos los ajustes y las comprobaciones que realizamos, y en la [lista de revisión](docs/PENDIENTES.md) registramos el estado de la entrega.
 
 ## Estructura
 ```text
@@ -23,6 +24,7 @@ eventosu-threat-model/
     ├── captura-threat-dragon.png
     ├── informe.pdf
     ├── amenazas.csv
+    ├── validacion-modelo-final.png
     ├── revision.md
     └── PENDIENTES.md
 ```
@@ -34,7 +36,7 @@ eventosu-threat-model/
 4. Abrir los diagramas `Nivel 0 - Contexto` y `Nivel 1 - Componentes y límites`.
 5. Seleccionar un elemento o flujo para consultar sus amenazas. Ajustar el zoom cuando sea necesario.
 
-El modelo fue abierto en Threat Dragon 2.6.2 el 12 de noviembre de 2026. Incluye 24 amenazas (cuatro por categoría STRIDE), 22 flujos y seis zonas de confianza. `Open` indica un control pendiente; `Accepted` corresponde a la aceptación de I04 propuesta para el ejercicio. No se han ejecutado pruebas de una aplicación real.
+Abrimos el modelo en Threat Dragon 2.6.2 el 12 de noviembre de 2026. Incluye 24 amenazas (cuatro por categoría STRIDE), 22 flujos y seis zonas de confianza. `Open` indica un control pendiente; `Accepted` corresponde a la aceptación de I04 propuesta para el ejercicio. Las pruebas de seguridad quedan definidas para cuando implementemos el sistema.
 
 ## Diagramas
 ### Nivel 0
@@ -50,14 +52,11 @@ Abrir las imágenes originales y ampliarlas para leer los flujos.
 - [OWASP ASVS 4.0.3: control de acceso](https://github.com/OWASP/ASVS/blob/v4.0.3/4.0/en/0x12-V4-Access-Control.md)
 - [OWASP ASVS 4.0.3: lógica de negocio](https://github.com/OWASP/ASVS/blob/v4.0.3/4.0/en/0x19-V11-BusLogic.md)
 
-La referencia ASVS se fija en 4.0.3 para conservar identificadores consistentes; no se presenta como la versión más reciente.
+Usamos ASVS 4.0.3 como referencia para mantener los mismos identificadores en todo el trabajo.
 
 
-## Verificación final
-- 24 amenazas: cuatro por cada categoría STRIDE; JSON, CSV e informe consistentes.
-- Riesgos: cinco críticos (9), trece altos (6), seis medios (cinco de 4 y uno de 3).
-- D04 asociada a F12; I04 aceptada con justificación, responsable de diseño y fecha de revisión.
-- Modelo final importado en Threat Dragon 2.6.2; [evidencia](docs/validacion-modelo-final.png).
-- Aportes de DouglasPrez y Daniel-1A conservados en el historial; [PR de Carlos](https://github.com/DouglasPrez/eventosu-threat-model/pull/1).
+## Revisión final
 
-El material está preparado para entregar. Solo falta subir el enlace a la plataforma del curso y confirmar que el catedrático pueda consultarlo. No se presentan pruebas de seguridad como ejecutadas.
+Comprobamos la consistencia de las 24 amenazas entre el modelo, el CSV y el informe. Obtuvimos cinco riesgos críticos, trece altos y seis medios. Corregimos la asociación de D04 a F12 y justificamos la aceptación de I04 con su responsable y plazo de revisión.
+
+También abrimos el modelo final en Threat Dragon 2.6.2 y guardamos una [captura de la validación](docs/validacion-modelo-final.png). El historial conserva nuestros aportes y el [pull request de revisión](https://github.com/DouglasPrez/eventosu-threat-model/pull/1).
