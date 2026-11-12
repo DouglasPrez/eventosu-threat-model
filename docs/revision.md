@@ -29,3 +29,17 @@ Fuentes: [ASVS V4, control de acceso](https://github.com/OWASP/ASVS/blob/v4.0.3/
 La raíz O representa tres caminos alternativos. Cada rama Y exige sus condiciones. La rama C es la de menor esfuerzo si se consigue un QR vigente, se llega primero y la puerta lo acepta como credencial al portador. La comparación es cualitativa y depende del acceso al QR. Para la rama A conviene explicitar como condición final que el pago falsificado provoque la emisión de un QR que la puerta acepte.
 
 El aporte incorpora el informe, el CSV y esta revisión. La reasignación de D04 y las ampliaciones de pruebas quedan propuestas para revisión conjunta. La comprobación del modelo se hizo sobre su JSON. Quedan por comprobar su apertura en Threat Dragon y las pruebas de seguridad cuando exista una implementación.
+
+
+## Cierre de observaciones - Douglas, 12 de noviembre de 2026
+
+Conservo arriba la revisión original de Carlos. En esta revisión posterior resolví los puntos siguientes en la versión final:
+
+- D04 se reasignó de F11 a F12 en JSON, CSV e informe. El flujo de cámara conserva S04; la saturación de red corresponde al endpoint de validación.
+- T03 ahora exige probar =, +, - y @, además de prefijos de control, en los cuatro campos exportados. El visor aprobado debe mostrarlos como texto sin ejecutar fórmulas.
+- SEC-01 incluye reintentos secuenciales y 20 notificaciones concurrentes del mismo pago; debe existir una única transición y una única entrada.
+- SEC-05 incorpora un administrador con contraseña válida y MFA pendiente: se debe denegar la acción. Esto aísla la verificación de MFA respecto de los permisos del rol.
+- La rama A del árbol exige que el pago falsificado produzca un QR aceptado en puerta.
+- I04 se recalificó de P2 a P3 conforme al criterio de solicitudes simples a una función pública. I1 × P3 = 3, riesgo medio. Se mantiene su aceptación en el diseño porque copiar información que se desea difundir no justifica un control restrictivo. La aceptación no cubre indisponibilidad ni datos privados.
+
+La versión corregida se importó y abrió en Threat Dragon 2.6.2. Los controles de seguridad permanecen propuestos: este caso no tiene implementación. Las pruebas descritas son criterios de aceptación, no resultados ejecutados.
