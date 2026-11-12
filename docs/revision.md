@@ -1,45 +1,38 @@
 # Revisión del modelo de amenazas de EventosU
 
-Aporte de Carlos Daniel Martínez García. La revisión se hizo sobre el modelo del commit `18e92f1`, el informe de 18 páginas y el CSV. Se revisó el diseño y las pruebas propuestas.
+Contrastamos el modelo, los diagramas, el informe y la tabla de amenazas para comprobar que la entrega fuera consistente. Como EventosU está en fase de diseño, las pruebas que definimos son criterios de aceptación para su implementación.
 
-## Modelo, diagramas y puntuaciones
+## Modelo y priorización
 
-- El JSON contiene dos diagramas. El de componentes contiene 22 flujos y seis límites de confianza. Los diagramas del PDF representan el contexto y los componentes del modelo.
-- Las 24 amenazas coinciden en ID, elemento asociado, categoría STRIDE, escenario, justificación, mitigación, estado y puntuación. En T01, T03 y R03 el título del JSON es más corto y la descripción contiene el escenario completo.
-- Los 24 productos de impacto por probabilidad son correctos. Hay cinco riesgos críticos de 9, trece altos de 6, cinco medios de 4 y uno bajo de 2. Cada fila justifica ambos factores. I04 cubre la copia de información pública y su aceptación sigue sujeta a ratificación.
-- **D04** está vinculado a F11 en los tres archivos. F11 cubre la captura local. El escenario y sus controles describen saturación del endpoint de la API en F12. Propongo acordar con Douglas la reasignación a F12 y actualizar JSON, CSV e informe juntos. La valoración 3 × 2 sigue siendo razonable por el efecto en puerta y el acceso necesario para intentar saturar el servicio.
-- **T03** cubre fórmulas en CSV. I01 controla quién puede obtener el archivo. Conviene añadir a T03 una prueba que exporte campos que empiecen con `=`, `+`, `-` y `@` y confirme que el visor los abre como texto.
+El modelo contiene dos diagramas, 22 flujos y seis límites de confianza. Identificamos 24 amenazas, cuatro por cada categoría STRIDE. Comprobamos que sus identificadores, elementos, escenarios, mitigaciones y puntuaciones coincidan en el JSON, el CSV y el informe.
 
-## Trazabilidad de los riesgos críticos
+Calculamos el riesgo multiplicando impacto por probabilidad. El resultado es de cinco riesgos críticos de 9, trece altos de 6 y seis medios: cinco de 4 y uno de 3.
 
-Los requisitos se contrastaron con OWASP ASVS 4.0.3. Estas condiciones corresponden a pruebas propuestas.
+Durante la revisión ajustamos dos puntos:
 
-| Amenaza | ASVS y tarea | Revisión de la aceptación |
+- Asociamos D04 a F12 porque describe la saturación del endpoint de validación de entradas. F11 corresponde a la captura local del QR.
+- Cambiamos la probabilidad de I04 de 2 a 3: cualquier visitante puede automatizar solicitudes al catálogo público. Con impacto 1, su riesgo es 3. Aceptamos este riesgo en el modelo porque copiar información destinada a difusión no justifica restringir su consulta. La aceptación no cubre datos privados ni interrupciones del servicio; asignamos su responsabilidad al dueño funcional y su revisión antes de cada evento o en 90 días.
+
+## Trazabilidad y pruebas propuestas
+
+Usamos OWASP ASVS 4.0.3 para relacionar los cinco riesgos críticos con tareas y condiciones verificables.
+
+| Amenaza | Requisito y tarea | Condición de aceptación |
 | --- | --- | --- |
-| S01, webhook falso | 11.1.5 · SEC-01 | Rechazar firmas ausentes, inválidas o vencidas sin mutar el pago. Repetir el mismo ID debe producir una sola entrada. Añadir la repetición concurrente para verificar la deduplicación. |
-| T01, reutilización de QR | 11.1.6 · SEC-02 | La prueba de 20 solicitudes en paralelo exige exactamente un éxito. Los casos impagado y de otro evento deben producir cero éxitos. |
-| T02, manipulación del importe | 11.1.1 y 11.1.5 · SEC-03 | El total se calcula en servidor. Un webhook firmado con orden, importe o moneda distintos debe rechazarse sin confirmar el pago ni emitir QR. |
-| I01, exposición de CSV | 4.2.1 y 4.1.3 · SEC-04 | Probar generación y descarga cruzadas entre organizadores, acceso anónimo y vencimiento del enlace. La prueba de IaC debe detectar lectura o listado público. |
-| E01, elevación a administrador | 4.1.1 y 4.3.1 · SEC-05 | Probar que el servidor rechace roles insuficientes y el atributo `role=admin` enviado por el cliente. Añadir un caso de administrador autenticado con MFA pendiente para aislar ese control. |
+| S01, webhook falso | 11.1.5 · SEC-01 | Rechazar firmas ausentes, inválidas o vencidas. Repetir el mismo pago secuencialmente y con 20 solicitudes concurrentes debe producir una sola transición y una sola entrada. |
+| T01, reutilización de QR | 11.1.6 · SEC-02 | De 20 validaciones simultáneas del mismo QR, exactamente una debe ser válida. Una entrada impagada o de otro evento no debe aceptarse. |
+| T02, manipulación del importe | 11.1.1 y 11.1.5 · SEC-03 | Calcular el total en servidor y rechazar confirmaciones con orden, importe o moneda distintos, aunque estén firmadas. |
+| I01, exposición de CSV | 4.2.1 y 4.1.3 · SEC-04 | Impedir la generación y descarga de listas de otro organizador, el acceso anónimo y el uso de enlaces vencidos. Detectar permisos públicos mediante IaC. |
+| E01, elevación a administrador | 4.1.1 y 4.3.1 · SEC-05 | Rechazar roles insuficientes y el campo `role=admin` del cliente. Denegar también a un administrador con contraseña válida y MFA pendiente. |
 
-Fuentes: [ASVS V4, control de acceso](https://github.com/OWASP/ASVS/blob/v4.0.3/4.0/en/0x12-V4-Access-Control.md) y [ASVS V11, lógica de negocio](https://github.com/OWASP/ASVS/blob/v4.0.3/4.0/en/0x19-V11-BusLogic.md).
+Para T03 añadimos casos con `=`, `+`, `-`, `@` y prefijos de control en los campos del CSV. El visor aprobado debe mostrarlos como texto, sin evaluar fórmulas.
 
 ## Árbol de ataque
 
-La raíz O representa tres caminos alternativos. Cada rama Y exige sus condiciones. La rama C es la de menor esfuerzo si se consigue un QR vigente, se llega primero y la puerta lo acepta como credencial al portador. La comparación es cualitativa y depende del acceso al QR. Para la rama A conviene explicitar como condición final que el pago falsificado provoque la emisión de un QR que la puerta acepte.
+Representamos tres caminos alternativos mediante una raíz O y condiciones conjuntas mediante nodos Y. En la rama del webhook falso incluimos la emisión de un QR aceptado en puerta. Consideramos que obtener un QR ajeno y llegar primero es el camino de menor esfuerzo cuando no se contrasta identidad; esta comparación depende de conseguir una entrada vigente.
 
-El aporte incorpora el informe, el CSV y esta revisión. La reasignación de D04 y las ampliaciones de pruebas quedan propuestas para revisión conjunta. La comprobación del modelo se hizo sobre su JSON. Quedan por comprobar su apertura en Threat Dragon y las pruebas de seguridad cuando exista una implementación.
+## Comprobación final
 
+Importamos y abrimos la versión corregida en Threat Dragon 2.6.2. Verificamos que las 24 amenazas y sus productos de impacto por probabilidad coincidan entre los archivos. Los aportes y la revisión de ambos integrantes están registrados en el historial del repositorio.
 
-## Cierre de observaciones - Douglas, 12 de noviembre de 2026
-
-Conservo arriba la revisión original de Carlos. En esta revisión posterior resolví los puntos siguientes en la versión final:
-
-- D04 se reasignó de F11 a F12 en JSON, CSV e informe. El flujo de cámara conserva S04; la saturación de red corresponde al endpoint de validación.
-- T03 ahora exige probar =, +, - y @, además de prefijos de control, en los cuatro campos exportados. El visor aprobado debe mostrarlos como texto sin ejecutar fórmulas.
-- SEC-01 incluye reintentos secuenciales y 20 notificaciones concurrentes del mismo pago; debe existir una única transición y una única entrada.
-- SEC-05 incorpora un administrador con contraseña válida y MFA pendiente: se debe denegar la acción. Esto aísla la verificación de MFA respecto de los permisos del rol.
-- La rama A del árbol exige que el pago falsificado produzca un QR aceptado en puerta.
-- I04 se recalificó de P2 a P3 conforme al criterio de solicitudes simples a una función pública. I1 × P3 = 3, riesgo medio. Se mantiene su aceptación en el diseño porque copiar información que se desea difundir no justifica un control restrictivo. La aceptación no cubre indisponibilidad ni datos privados.
-
-La versión corregida se importó y abrió en Threat Dragon 2.6.2. Los controles de seguridad permanecen propuestos: este caso no tiene implementación. Las pruebas descritas son criterios de aceptación, no resultados ejecutados.
+Referencias: [ASVS: control de acceso](https://github.com/OWASP/ASVS/blob/v4.0.3/4.0/en/0x12-V4-Access-Control.md) y [ASVS: lógica de negocio](https://github.com/OWASP/ASVS/blob/v4.0.3/4.0/en/0x19-V11-BusLogic.md).
