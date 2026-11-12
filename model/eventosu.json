@@ -1,0 +1,2658 @@
+{
+  "version": "2.6.2",
+  "summary": {
+    "title": "EventosU - Modelado de amenazas",
+    "owner": "Douglas Daniel Pérez Hernández",
+    "description": "Modelo de diseño; controles propuestos, sin pruebas de implementación."
+  },
+  "detail": {
+    "contributors": [
+      {
+        "name": "Douglas Daniel Pérez Hernández"
+      },
+      {
+        "name": "Carlos Daniel Martínez García"
+      }
+    ],
+    "reviewer": "",
+    "diagramTop": 2,
+    "threatTop": 24,
+    "diagrams": [
+      {
+        "id": 0,
+        "title": "Nivel 0 - Contexto",
+        "diagramType": "STRIDE",
+        "version": "2.6.2",
+        "thumbnail": "",
+        "cells": [
+          {
+            "id": "EV",
+            "shape": "process",
+            "zIndex": 1,
+            "position": {
+              "x": 800,
+              "y": 450
+            },
+            "size": {
+              "width": 190,
+              "height": 100
+            },
+            "attrs": {
+              "label": {
+                "text": "EV\nEventosU",
+                "fontSize": 14
+              }
+            },
+            "data": {
+              "type": "tm.Process",
+              "name": "EV EventosU",
+              "description": "",
+              "hasOpenThreats": false,
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "threats": []
+            }
+          },
+          {
+            "id": "A01",
+            "shape": "actor",
+            "zIndex": 1,
+            "position": {
+              "x": 100,
+              "y": 50
+            },
+            "size": {
+              "width": 190,
+              "height": 100
+            },
+            "attrs": {
+              "label": {
+                "text": "A01\nVisitante",
+                "fontSize": 14
+              }
+            },
+            "data": {
+              "type": "tm.Actor",
+              "name": "A01 Visitante",
+              "description": "",
+              "hasOpenThreats": false,
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "threats": []
+            }
+          },
+          {
+            "id": "CA01",
+            "shape": "flow",
+            "zIndex": 0,
+            "source": {
+              "cell": "A01"
+            },
+            "target": {
+              "cell": "EV"
+            },
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "Catálogo (HTTPS)",
+                    "fontSize": 11
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "attrs": {
+              "line": {
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                }
+              }
+            },
+            "data": {
+              "type": "tm.Flow",
+              "name": "Catálogo (HTTPS)",
+              "hasOpenThreats": false,
+              "isBidirectional": true,
+              "threats": []
+            }
+          },
+          {
+            "id": "A02",
+            "shape": "actor",
+            "zIndex": 1,
+            "position": {
+              "x": 100,
+              "y": 260
+            },
+            "size": {
+              "width": 190,
+              "height": 100
+            },
+            "attrs": {
+              "label": {
+                "text": "A02\nEstudiante / público",
+                "fontSize": 14
+              }
+            },
+            "data": {
+              "type": "tm.Actor",
+              "name": "A02 Estudiante / público",
+              "description": "",
+              "hasOpenThreats": false,
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "threats": []
+            }
+          },
+          {
+            "id": "CA02",
+            "shape": "flow",
+            "zIndex": 0,
+            "source": {
+              "cell": "A02"
+            },
+            "target": {
+              "cell": "EV"
+            },
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "Cuenta, inscripción, pago y QR (HTTPS / JSON)",
+                    "fontSize": 11
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "attrs": {
+              "line": {
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                }
+              }
+            },
+            "data": {
+              "type": "tm.Flow",
+              "name": "Cuenta, inscripción, pago y QR (HTTPS / JSON)",
+              "hasOpenThreats": false,
+              "isBidirectional": true,
+              "threats": []
+            }
+          },
+          {
+            "id": "A03",
+            "shape": "actor",
+            "zIndex": 1,
+            "position": {
+              "x": 100,
+              "y": 470
+            },
+            "size": {
+              "width": 190,
+              "height": 100
+            },
+            "attrs": {
+              "label": {
+                "text": "A03\nOrganizador",
+                "fontSize": 14
+              }
+            },
+            "data": {
+              "type": "tm.Actor",
+              "name": "A03 Organizador",
+              "description": "",
+              "hasOpenThreats": false,
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "threats": []
+            }
+          },
+          {
+            "id": "CA03",
+            "shape": "flow",
+            "zIndex": 0,
+            "source": {
+              "cell": "A03"
+            },
+            "target": {
+              "cell": "EV"
+            },
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "Eventos, afiches y CSV (HTTPS)",
+                    "fontSize": 11
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "attrs": {
+              "line": {
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                }
+              }
+            },
+            "data": {
+              "type": "tm.Flow",
+              "name": "Eventos, afiches y CSV (HTTPS)",
+              "hasOpenThreats": false,
+              "isBidirectional": true,
+              "threats": []
+            }
+          },
+          {
+            "id": "A04",
+            "shape": "actor",
+            "zIndex": 1,
+            "position": {
+              "x": 100,
+              "y": 680
+            },
+            "size": {
+              "width": 190,
+              "height": 100
+            },
+            "attrs": {
+              "label": {
+                "text": "A04\nPersonal de puerta",
+                "fontSize": 14
+              }
+            },
+            "data": {
+              "type": "tm.Actor",
+              "name": "A04 Personal de puerta",
+              "description": "",
+              "hasOpenThreats": false,
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "threats": []
+            }
+          },
+          {
+            "id": "CA04",
+            "shape": "flow",
+            "zIndex": 0,
+            "source": {
+              "cell": "A04"
+            },
+            "target": {
+              "cell": "EV"
+            },
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "QR / resultado de validación (HTTPS / JSON)",
+                    "fontSize": 11
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "attrs": {
+              "line": {
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                }
+              }
+            },
+            "data": {
+              "type": "tm.Flow",
+              "name": "QR / resultado de validación (HTTPS / JSON)",
+              "hasOpenThreats": false,
+              "isBidirectional": true,
+              "threats": []
+            }
+          },
+          {
+            "id": "A05",
+            "shape": "actor",
+            "zIndex": 1,
+            "position": {
+              "x": 100,
+              "y": 890
+            },
+            "size": {
+              "width": 190,
+              "height": 100
+            },
+            "attrs": {
+              "label": {
+                "text": "A05\nAdministrador",
+                "fontSize": 14
+              }
+            },
+            "data": {
+              "type": "tm.Actor",
+              "name": "A05 Administrador",
+              "description": "",
+              "hasOpenThreats": false,
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "threats": []
+            }
+          },
+          {
+            "id": "CA05",
+            "shape": "flow",
+            "zIndex": 0,
+            "source": {
+              "cell": "A05"
+            },
+            "target": {
+              "cell": "EV"
+            },
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "Usuarios, roles y reportes (HTTPS / JSON)",
+                    "fontSize": 11
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "attrs": {
+              "line": {
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                }
+              }
+            },
+            "data": {
+              "type": "tm.Flow",
+              "name": "Usuarios, roles y reportes (HTTPS / JSON)",
+              "hasOpenThreats": false,
+              "isBidirectional": true,
+              "threats": []
+            }
+          },
+          {
+            "id": "X01",
+            "shape": "actor",
+            "zIndex": 1,
+            "position": {
+              "x": 1400,
+              "y": 50
+            },
+            "size": {
+              "width": 190,
+              "height": 100
+            },
+            "attrs": {
+              "label": {
+                "text": "X01\nMicrosoft Entra ID",
+                "fontSize": 14
+              }
+            },
+            "data": {
+              "type": "tm.Actor",
+              "name": "X01 Microsoft Entra ID",
+              "description": "",
+              "hasOpenThreats": false,
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "threats": []
+            }
+          },
+          {
+            "id": "CX01",
+            "shape": "flow",
+            "zIndex": 0,
+            "source": {
+              "cell": "X01"
+            },
+            "target": {
+              "cell": "EV"
+            },
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "Identidad y tokens (HTTPS / OIDC)",
+                    "fontSize": 11
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "attrs": {
+              "line": {
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                }
+              }
+            },
+            "data": {
+              "type": "tm.Flow",
+              "name": "Identidad y tokens (HTTPS / OIDC)",
+              "hasOpenThreats": false,
+              "isBidirectional": true,
+              "threats": []
+            }
+          },
+          {
+            "id": "X02",
+            "shape": "actor",
+            "zIndex": 1,
+            "position": {
+              "x": 1400,
+              "y": 260
+            },
+            "size": {
+              "width": 190,
+              "height": 100
+            },
+            "attrs": {
+              "label": {
+                "text": "X02\nPasarela de pagos",
+                "fontSize": 14
+              }
+            },
+            "data": {
+              "type": "tm.Actor",
+              "name": "X02 Pasarela de pagos",
+              "description": "",
+              "hasOpenThreats": false,
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "threats": []
+            }
+          },
+          {
+            "id": "CX02",
+            "shape": "flow",
+            "zIndex": 0,
+            "source": {
+              "cell": "X02"
+            },
+            "target": {
+              "cell": "EV"
+            },
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "Orden / webhook de pago (HTTPS / JSON)",
+                    "fontSize": 11
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "attrs": {
+              "line": {
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                }
+              }
+            },
+            "data": {
+              "type": "tm.Flow",
+              "name": "Orden / webhook de pago (HTTPS / JSON)",
+              "hasOpenThreats": false,
+              "isBidirectional": true,
+              "threats": []
+            }
+          },
+          {
+            "id": "X03",
+            "shape": "actor",
+            "zIndex": 1,
+            "position": {
+              "x": 1400,
+              "y": 470
+            },
+            "size": {
+              "width": 190,
+              "height": 100
+            },
+            "attrs": {
+              "label": {
+                "text": "X03\nServicio de correo",
+                "fontSize": 14
+              }
+            },
+            "data": {
+              "type": "tm.Actor",
+              "name": "X03 Servicio de correo",
+              "description": "",
+              "hasOpenThreats": false,
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "threats": []
+            }
+          },
+          {
+            "id": "CX03",
+            "shape": "flow",
+            "zIndex": 0,
+            "source": {
+              "cell": "X03"
+            },
+            "target": {
+              "cell": "EV"
+            },
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "QR y recuperación (HTTPS / API)",
+                    "fontSize": 11
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "attrs": {
+              "line": {
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                }
+              }
+            },
+            "data": {
+              "type": "tm.Flow",
+              "name": "QR y recuperación (HTTPS / API)",
+              "hasOpenThreats": false,
+              "isBidirectional": true,
+              "threats": []
+            }
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "title": "Nivel 1 - Componentes y límites",
+        "diagramType": "STRIDE",
+        "version": "2.6.2",
+        "thumbnail": "",
+        "cells": [
+          {
+            "id": "LC6",
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "position": {
+              "x": 1470,
+              "y": 1000
+            },
+            "size": {
+              "width": 340,
+              "height": 190
+            },
+            "attrs": {
+              "label": {
+                "text": "LC6 Correo externo"
+              },
+              "body": {
+                "stroke": "#bc5962",
+                "strokeWidth": 1,
+                "strokeDasharray": "6 4",
+                "fill": "transparent"
+              }
+            },
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "LC6 Correo externo",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "id": "LC5",
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "position": {
+              "x": 900,
+              "y": 960
+            },
+            "size": {
+              "width": 360,
+              "height": 220
+            },
+            "attrs": {
+              "label": {
+                "text": "LC5 Pagos externos"
+              },
+              "body": {
+                "stroke": "#bc5962",
+                "strokeWidth": 1,
+                "strokeDasharray": "6 4",
+                "fill": "transparent"
+              }
+            },
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "LC5 Pagos externos",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "id": "LC4",
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "position": {
+              "x": 900,
+              "y": 10
+            },
+            "size": {
+              "width": 360,
+              "height": 200
+            },
+            "attrs": {
+              "label": {
+                "text": "LC4 Identidad externa"
+              },
+              "body": {
+                "stroke": "#bc5962",
+                "strokeWidth": 1,
+                "strokeDasharray": "6 4",
+                "fill": "transparent"
+              }
+            },
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "LC4 Identidad externa",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "id": "LC3",
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "position": {
+              "x": 1470,
+              "y": 120
+            },
+            "size": {
+              "width": 340,
+              "height": 850
+            },
+            "attrs": {
+              "label": {
+                "text": "LC3 Servicios de datos administrados"
+              },
+              "body": {
+                "stroke": "#bc5962",
+                "strokeWidth": 1,
+                "strokeDasharray": "6 4",
+                "fill": "transparent"
+              }
+            },
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "LC3 Servicios de datos administrados",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "id": "LC2",
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "position": {
+              "x": 900,
+              "y": 400
+            },
+            "size": {
+              "width": 380,
+              "height": 260
+            },
+            "attrs": {
+              "label": {
+                "text": "LC2 Nube de aplicación"
+              },
+              "body": {
+                "stroke": "#bc5962",
+                "strokeWidth": 1,
+                "strokeDasharray": "6 4",
+                "fill": "transparent"
+              }
+            },
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "LC2 Nube de aplicación",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "id": "LC1",
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "position": {
+              "x": 20,
+              "y": 20
+            },
+            "size": {
+              "width": 700,
+              "height": 1100
+            },
+            "attrs": {
+              "label": {
+                "text": "LC1 Dispositivos y navegador"
+              },
+              "body": {
+                "stroke": "#bc5962",
+                "strokeWidth": 1,
+                "strokeDasharray": "6 4",
+                "fill": "transparent"
+              }
+            },
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "LC1 Dispositivos y navegador",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "id": "A01",
+            "shape": "actor",
+            "zIndex": 1,
+            "position": {
+              "x": 50,
+              "y": 100
+            },
+            "size": {
+              "width": 190,
+              "height": 100
+            },
+            "attrs": {
+              "label": {
+                "text": "A01\nVisitante",
+                "fontSize": 14
+              }
+            },
+            "data": {
+              "type": "tm.Actor",
+              "name": "A01 Visitante",
+              "description": "",
+              "hasOpenThreats": false,
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "threats": []
+            }
+          },
+          {
+            "id": "A02",
+            "shape": "actor",
+            "zIndex": 1,
+            "position": {
+              "x": 50,
+              "y": 300
+            },
+            "size": {
+              "width": 190,
+              "height": 100
+            },
+            "attrs": {
+              "label": {
+                "text": "A02\nEstudiante / público",
+                "fontSize": 14
+              }
+            },
+            "data": {
+              "type": "tm.Actor",
+              "name": "A02 Estudiante / público",
+              "description": "",
+              "hasOpenThreats": false,
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "threats": []
+            }
+          },
+          {
+            "id": "A03",
+            "shape": "actor",
+            "zIndex": 1,
+            "position": {
+              "x": 50,
+              "y": 500
+            },
+            "size": {
+              "width": 190,
+              "height": 100
+            },
+            "attrs": {
+              "label": {
+                "text": "A03\nOrganizador",
+                "fontSize": 14
+              }
+            },
+            "data": {
+              "type": "tm.Actor",
+              "name": "A03 Organizador",
+              "description": "",
+              "hasOpenThreats": false,
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "threats": []
+            }
+          },
+          {
+            "id": "A04",
+            "shape": "actor",
+            "zIndex": 1,
+            "position": {
+              "x": 50,
+              "y": 700
+            },
+            "size": {
+              "width": 190,
+              "height": 100
+            },
+            "attrs": {
+              "label": {
+                "text": "A04\nPersonal de puerta",
+                "fontSize": 14
+              }
+            },
+            "data": {
+              "type": "tm.Actor",
+              "name": "A04 Personal de puerta",
+              "description": "",
+              "hasOpenThreats": false,
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "threats": []
+            }
+          },
+          {
+            "id": "A05",
+            "shape": "actor",
+            "zIndex": 1,
+            "position": {
+              "x": 50,
+              "y": 900
+            },
+            "size": {
+              "width": 190,
+              "height": 100
+            },
+            "attrs": {
+              "label": {
+                "text": "A05\nAdministrador",
+                "fontSize": 14
+              }
+            },
+            "data": {
+              "type": "tm.Actor",
+              "name": "A05 Administrador",
+              "description": "",
+              "hasOpenThreats": false,
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "threats": []
+            }
+          },
+          {
+            "id": "P01",
+            "shape": "process",
+            "zIndex": 1,
+            "position": {
+              "x": 450,
+              "y": 180
+            },
+            "size": {
+              "width": 190,
+              "height": 100
+            },
+            "attrs": {
+              "label": {
+                "text": "P01\nReact / navegador",
+                "fontSize": 14
+              }
+            },
+            "data": {
+              "type": "tm.Process",
+              "name": "P01 React / navegador",
+              "description": "",
+              "hasOpenThreats": false,
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "threats": []
+            }
+          },
+          {
+            "id": "P02",
+            "shape": "process",
+            "zIndex": 1,
+            "position": {
+              "x": 450,
+              "y": 850
+            },
+            "size": {
+              "width": 190,
+              "height": 100
+            },
+            "attrs": {
+              "label": {
+                "text": "P02\nPanel /admin",
+                "fontSize": 14
+              }
+            },
+            "data": {
+              "type": "tm.Process",
+              "name": "P02 Panel /admin",
+              "description": "",
+              "hasOpenThreats": false,
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "threats": []
+            }
+          },
+          {
+            "id": "P03",
+            "shape": "process",
+            "zIndex": 1,
+            "position": {
+              "x": 1000,
+              "y": 500
+            },
+            "size": {
+              "width": 190,
+              "height": 100
+            },
+            "attrs": {
+              "label": {
+                "text": "P03\nAPI Node.js / JWT",
+                "fontSize": 14
+              }
+            },
+            "data": {
+              "type": "tm.Process",
+              "name": "P03 API Node.js / JWT",
+              "description": "",
+              "hasOpenThreats": true,
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "threats": [
+                {
+                  "threatId": "3ac02129-1ea7-4b11-a575-5cc7fe058ae8",
+                  "number": 23,
+                  "title": "E03 - Un atacante explota una dependencia vulnerable de Node.js y obtiene ejecución con la identidad del contenedor.",
+                  "description": "Un atacante explota una dependencia vulnerable de Node.js y obtiene ejecución con la identidad del contenedor. I: expone secretos y servicios conectados. P: necesita una dependencia vulnerable alcanzable.",
+                  "type": "Elevation of privilege",
+                  "modelType": "STRIDE",
+                  "severity": "High",
+                  "status": "Open",
+                  "score": "6",
+                  "mitigation": "Mitigar: SCA de lockfile e imagen con bloqueo de vulnerabilidades explotables altas/críticas; contenedor no root, sin privilegios y secretos de alcance mínimo."
+                }
+              ]
+            }
+          },
+          {
+            "id": "P04",
+            "shape": "process",
+            "zIndex": 1,
+            "position": {
+              "x": 450,
+              "y": 680
+            },
+            "size": {
+              "width": 190,
+              "height": 100
+            },
+            "attrs": {
+              "label": {
+                "text": "P04\nApp de puerta",
+                "fontSize": 14
+              }
+            },
+            "data": {
+              "type": "tm.Process",
+              "name": "P04 App de puerta",
+              "description": "",
+              "hasOpenThreats": false,
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "threats": []
+            }
+          },
+          {
+            "id": "D01",
+            "shape": "store",
+            "zIndex": 1,
+            "position": {
+              "x": 1550,
+              "y": 200
+            },
+            "size": {
+              "width": 190,
+              "height": 100
+            },
+            "attrs": {
+              "label": {
+                "text": "D01\nPostgreSQL",
+                "fontSize": 14
+              }
+            },
+            "data": {
+              "type": "tm.Store",
+              "name": "D01 PostgreSQL",
+              "description": "",
+              "hasOpenThreats": false,
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "threats": []
+            }
+          },
+          {
+            "id": "D02",
+            "shape": "store",
+            "zIndex": 1,
+            "position": {
+              "x": 1550,
+              "y": 500
+            },
+            "size": {
+              "width": 190,
+              "height": 100
+            },
+            "attrs": {
+              "label": {
+                "text": "D02\nBucket afiches / CSV",
+                "fontSize": 14
+              }
+            },
+            "data": {
+              "type": "tm.Store",
+              "name": "D02 Bucket afiches / CSV",
+              "description": "",
+              "hasOpenThreats": false,
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "threats": []
+            }
+          },
+          {
+            "id": "D03",
+            "shape": "store",
+            "zIndex": 1,
+            "position": {
+              "x": 1550,
+              "y": 800
+            },
+            "size": {
+              "width": 190,
+              "height": 100
+            },
+            "attrs": {
+              "label": {
+                "text": "D03\nAuditoría (supuesto)",
+                "fontSize": 14
+              }
+            },
+            "data": {
+              "type": "tm.Store",
+              "name": "D03 Auditoría (supuesto)",
+              "description": "",
+              "hasOpenThreats": true,
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "threats": [
+                {
+                  "threatId": "7d6962ae-1c36-44cb-8305-09f28abc5cf7",
+                  "number": 15,
+                  "title": "I03 - Un operador consulta logs con JWT, enlaces QR o tokens de recuperación y obtiene acceso a cuentas o entradas.",
+                  "description": "Un operador consulta logs con JWT, enlaces QR o tokens de recuperación y obtiene acceso a cuentas o entradas. I: los secretos permiten suplantar usuarios. P: exige acceso a logs que contengan valores sensibles.",
+                  "type": "Information disclosure",
+                  "modelType": "STRIDE",
+                  "severity": "High",
+                  "status": "Open",
+                  "score": "6",
+                  "mitigation": "Mitigar: Redactar Authorization, cookies, QR y tokens antes de registrar; acceso mínimo, retención de 90 días y prueba con valores señuelo."
+                }
+              ]
+            }
+          },
+          {
+            "id": "X01",
+            "shape": "actor",
+            "zIndex": 1,
+            "position": {
+              "x": 1000,
+              "y": 50
+            },
+            "size": {
+              "width": 190,
+              "height": 100
+            },
+            "attrs": {
+              "label": {
+                "text": "X01\nMicrosoft Entra ID",
+                "fontSize": 14
+              }
+            },
+            "data": {
+              "type": "tm.Actor",
+              "name": "X01 Microsoft Entra ID",
+              "description": "",
+              "hasOpenThreats": false,
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "threats": []
+            }
+          },
+          {
+            "id": "X02",
+            "shape": "actor",
+            "zIndex": 1,
+            "position": {
+              "x": 1000,
+              "y": 1000
+            },
+            "size": {
+              "width": 190,
+              "height": 100
+            },
+            "attrs": {
+              "label": {
+                "text": "X02\nPasarela de pagos",
+                "fontSize": 14
+              }
+            },
+            "data": {
+              "type": "tm.Actor",
+              "name": "X02 Pasarela de pagos",
+              "description": "",
+              "hasOpenThreats": false,
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "threats": []
+            }
+          },
+          {
+            "id": "X03",
+            "shape": "actor",
+            "zIndex": 1,
+            "position": {
+              "x": 1550,
+              "y": 1050
+            },
+            "size": {
+              "width": 190,
+              "height": 100
+            },
+            "attrs": {
+              "label": {
+                "text": "X03\nServicio de correo",
+                "fontSize": 14
+              }
+            },
+            "data": {
+              "type": "tm.Actor",
+              "name": "X03 Servicio de correo",
+              "description": "",
+              "hasOpenThreats": false,
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "threats": []
+            }
+          },
+          {
+            "id": "F01",
+            "shape": "flow",
+            "zIndex": 0,
+            "source": {
+              "cell": "A01"
+            },
+            "target": {
+              "cell": "P01"
+            },
+            "connector": "normal",
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "F01 Catálogo / HTML y JS\n(HTTPS)",
+                    "fontSize": 10
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "attrs": {
+              "line": {
+                "stroke": "#425a70",
+                "strokeWidth": 1.2,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                }
+              }
+            },
+            "data": {
+              "type": "tm.Flow",
+              "name": "F01 Catálogo / HTML y JS (HTTPS)",
+              "description": "Solicitud y respuesta",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isBidirectional": true,
+              "isPublicNetwork": true,
+              "isTrustBoundary": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "threatId": "802794da-7abf-4d0e-87dc-25c6a4de1e76",
+                  "number": 16,
+                  "title": "I04 - Un visitante automatiza la lectura del catálogo y copia nombres, fechas y precios publicados.",
+                  "description": "Un visitante automatiza la lectura del catálogo y copia nombres, fechas y precios publicados. I: los datos ya son públicos y no incluyen inscritos. P: la automatización es sencilla pero el interés es incierto.",
+                  "type": "Information disclosure",
+                  "modelType": "STRIDE",
+                  "severity": "Low",
+                  "status": "Accepted",
+                  "score": "2",
+                  "mitigation": "Aceptar: Aceptar solo la copia del catálogo público; responsable: dueño funcional de EventosU; revisar por evento o en 90 días. Mantener límites de lectura; si hay caída se aplica D01."
+                }
+              ]
+            }
+          },
+          {
+            "id": "F02",
+            "shape": "flow",
+            "zIndex": 0,
+            "source": {
+              "cell": "A02"
+            },
+            "target": {
+              "cell": "P01"
+            },
+            "connector": "normal",
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "F02 Registro, sesión y entrada QR\n(HTTPS / JSON)",
+                    "fontSize": 10
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "attrs": {
+              "line": {
+                "stroke": "#425a70",
+                "strokeWidth": 1.2,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                }
+              }
+            },
+            "data": {
+              "type": "tm.Flow",
+              "name": "F02 Registro, sesión y entrada QR (HTTPS / JSON)",
+              "description": "Solicitud y respuesta",
+              "protocol": "HTTPS / JSON",
+              "isEncrypted": true,
+              "isBidirectional": true,
+              "isPublicNetwork": true,
+              "isTrustBoundary": false,
+              "hasOpenThreats": false,
+              "threats": []
+            }
+          },
+          {
+            "id": "F03",
+            "shape": "flow",
+            "zIndex": 0,
+            "source": {
+              "cell": "P01"
+            },
+            "target": {
+              "cell": "P03"
+            },
+            "connector": "normal",
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "F03 Catálogo de eventos\n(HTTPS / JSON)",
+                    "fontSize": 10
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "attrs": {
+              "line": {
+                "stroke": "#425a70",
+                "strokeWidth": 1.2,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                }
+              }
+            },
+            "data": {
+              "type": "tm.Flow",
+              "name": "F03 Catálogo de eventos (HTTPS / JSON)",
+              "description": "Solicitud y respuesta",
+              "protocol": "HTTPS / JSON",
+              "isEncrypted": true,
+              "isBidirectional": true,
+              "isPublicNetwork": true,
+              "isTrustBoundary": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "threatId": "26ff2c6a-d880-454d-adc6-4c07dbba7488",
+                  "number": 17,
+                  "title": "D01 - Un bot satura búsquedas costosas del catálogo y deja la API sin capacidad para usuarios legítimos.",
+                  "description": "Un bot satura búsquedas costosas del catálogo y deja la API sin capacidad para usuarios legítimos. I: interrumpe consultas e inscripciones temporalmente. P: la ruta es pública y automatizable.",
+                  "type": "Denial of service",
+                  "modelType": "STRIDE",
+                  "severity": "High",
+                  "status": "Open",
+                  "score": "6",
+                  "mitigation": "Mitigar: Cachear catálogo, paginar máximo 100 resultados, limitar por IP y fijar timeout de consultas; verificar con carga controlada."
+                }
+              ]
+            },
+            "vertices": [
+              {
+                "x": 780,
+                "y": 160
+              },
+              {
+                "x": 850,
+                "y": 320
+              }
+            ]
+          },
+          {
+            "id": "F04",
+            "shape": "flow",
+            "zIndex": 0,
+            "source": {
+              "cell": "P01"
+            },
+            "target": {
+              "cell": "P03"
+            },
+            "connector": "normal",
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "F04 Credenciales, sesión y recuperación\n(HTTPS / JSON)",
+                    "fontSize": 10
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "attrs": {
+              "line": {
+                "stroke": "#425a70",
+                "strokeWidth": 1.2,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                }
+              }
+            },
+            "data": {
+              "type": "tm.Flow",
+              "name": "F04 Credenciales, sesión y recuperación (HTTPS / JSON)",
+              "description": "Solicitud y respuesta",
+              "protocol": "HTTPS / JSON",
+              "isEncrypted": true,
+              "isBidirectional": true,
+              "isPublicNetwork": true,
+              "isTrustBoundary": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "threatId": "b00982db-3c7b-4101-9d62-d25b863a37df",
+                  "number": 2,
+                  "title": "S02 - Un atacante usa credenciales filtradas en el login local y obtiene la cuenta y las entradas de otro usuario.",
+                  "description": "Un atacante usa credenciales filtradas en el login local y obtiene la cuenta y las entradas de otro usuario. I: expone cuenta y entradas. P: requiere credenciales válidas reutilizadas.",
+                  "type": "Spoofing",
+                  "modelType": "STRIDE",
+                  "severity": "High",
+                  "status": "Open",
+                  "score": "6",
+                  "mitigation": "Mitigar: Limitar intentos por cuenta e IP, detectar credential stuffing y exigir MFA a roles privilegiados; probar bloqueo progresivo."
+                },
+                {
+                  "threatId": "4b64d03d-fe67-4dd1-adf3-c287da479be5",
+                  "number": 14,
+                  "title": "I02 - Un atacante aprovecha un XSS en el navegador y lee el JWT persistido para secuestrar sesiones.",
+                  "description": "Un atacante aprovecha un XSS en el navegador y lee el JWT persistido para secuestrar sesiones. I: permite actuar como la víctima. P: necesita una inyección ejecutable.",
+                  "type": "Information disclosure",
+                  "modelType": "STRIDE",
+                  "severity": "High",
+                  "status": "Open",
+                  "score": "6",
+                  "mitigation": "Mitigar: Evitar almacenamiento persistente del token; preferir cookie HttpOnly Secure SameSite con defensa CSRF; CSP restrictiva y eliminación de HTML no confiable."
+                }
+              ]
+            },
+            "vertices": [
+              {
+                "x": 740,
+                "y": 300
+              },
+              {
+                "x": 880,
+                "y": 430
+              }
+            ]
+          },
+          {
+            "id": "F05",
+            "shape": "flow",
+            "zIndex": 0,
+            "source": {
+              "cell": "P01"
+            },
+            "target": {
+              "cell": "X01"
+            },
+            "connector": "normal",
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "F05 Autorización institucional / código OIDC\n(HTTPS / OAuth2 + OIDC)",
+                    "fontSize": 10
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "attrs": {
+              "line": {
+                "stroke": "#425a70",
+                "strokeWidth": 1.2,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                }
+              }
+            },
+            "data": {
+              "type": "tm.Flow",
+              "name": "F05 Autorización institucional / código OIDC (HTTPS / OAuth2 + OIDC)",
+              "description": "Solicitud y respuesta",
+              "protocol": "HTTPS / OAuth2 + OIDC",
+              "isEncrypted": true,
+              "isBidirectional": true,
+              "isPublicNetwork": true,
+              "isTrustBoundary": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "threatId": "8ed8d8d6-92f2-40f8-a4e3-9cc45510b9e0",
+                  "number": 3,
+                  "title": "S03 - Un atacante presenta un token de otro tenant o destinado a otra aplicación y obtiene una sesión institucional.",
+                  "description": "Un atacante presenta un token de otro tenant o destinado a otra aplicación y obtiene una sesión institucional. I: permite identidad institucional falsa. P: exige una validación incompleta del token.",
+                  "type": "Spoofing",
+                  "modelType": "STRIDE",
+                  "severity": "High",
+                  "status": "Open",
+                  "score": "6",
+                  "mitigation": "Mitigar: Usar OIDC sobre OAuth 2.0, código con PKCE y state/nonce; validar firma, issuer, audience, expiración y tenant autorizado."
+                }
+              ]
+            }
+          },
+          {
+            "id": "F06",
+            "shape": "flow",
+            "zIndex": 0,
+            "source": {
+              "cell": "P01"
+            },
+            "target": {
+              "cell": "P03"
+            },
+            "connector": "normal",
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "F06 Inscripción, orden y entrada QR\n(HTTPS / JSON)",
+                    "fontSize": 10
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "attrs": {
+              "line": {
+                "stroke": "#425a70",
+                "strokeWidth": 1.2,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                }
+              }
+            },
+            "data": {
+              "type": "tm.Flow",
+              "name": "F06 Inscripción, orden y entrada QR (HTTPS / JSON)",
+              "description": "Solicitud y respuesta",
+              "protocol": "HTTPS / JSON",
+              "isEncrypted": true,
+              "isBidirectional": true,
+              "isPublicNetwork": true,
+              "isTrustBoundary": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "threatId": "ddccac6b-6e56-401a-af50-5436345f3822",
+                  "number": 6,
+                  "title": "T02 - Un usuario modifica importe, moneda o estado en la inscripción y obtiene una entrada pagando menos o nada.",
+                  "description": "Un usuario modifica importe, moneda o estado en la inscripción y obtiene una entrada pagando menos o nada. I: altera directamente la recaudación. P: el cliente controla el cuerpo de su solicitud.",
+                  "type": "Tampering",
+                  "modelType": "STRIDE",
+                  "severity": "High",
+                  "status": "Open",
+                  "score": "9",
+                  "mitigation": "Mitigar: Calcular precio y moneda en servidor; ignorar campos de estado del cliente y conciliar webhook con orden, importe, moneda y comercio esperados."
+                },
+                {
+                  "threatId": "d702bc83-2bad-486d-bbf0-cc5bc326add5",
+                  "number": 22,
+                  "title": "E02 - Un usuario cambia el ID de inscripción y descarga o cancela la entrada de otra persona.",
+                  "description": "Un usuario cambia el ID de inscripción y descarga o cancela la entrada de otra persona. I: afecta acceso y datos de terceros. P: requiere una referencia ajena y ausencia de control de propiedad.",
+                  "type": "Elevation of privilege",
+                  "modelType": "STRIDE",
+                  "severity": "High",
+                  "status": "Open",
+                  "score": "6",
+                  "mitigation": "Mitigar: Derivar usuario desde la sesión; verificar propietario en cada operación de inscripción, pago y QR, incluso con UUID."
+                }
+              ]
+            },
+            "vertices": [
+              {
+                "x": 730,
+                "y": 410
+              },
+              {
+                "x": 870,
+                "y": 510
+              }
+            ]
+          },
+          {
+            "id": "F07",
+            "shape": "flow",
+            "zIndex": 0,
+            "source": {
+              "cell": "P01"
+            },
+            "target": {
+              "cell": "X02"
+            },
+            "connector": "normal",
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "F07 Redirección de pago / orden\n(HTTPS)",
+                    "fontSize": 10
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "attrs": {
+              "line": {
+                "stroke": "#425a70",
+                "strokeWidth": 1.2,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                }
+              }
+            },
+            "data": {
+              "type": "tm.Flow",
+              "name": "F07 Redirección de pago / orden (HTTPS)",
+              "description": "Solicitud y respuesta",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isBidirectional": true,
+              "isPublicNetwork": true,
+              "isTrustBoundary": false,
+              "hasOpenThreats": false,
+              "threats": []
+            },
+            "vertices": [
+              {
+                "x": 800,
+                "y": 920
+              },
+              {
+                "x": 870,
+                "y": 1000
+              }
+            ]
+          },
+          {
+            "id": "F08",
+            "shape": "flow",
+            "zIndex": 0,
+            "source": {
+              "cell": "X02"
+            },
+            "target": {
+              "cell": "P03"
+            },
+            "connector": "normal",
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "F08 Webhook: pago, orden, importe y firma\n(HTTPS / JSON)",
+                    "fontSize": 10
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "attrs": {
+              "line": {
+                "stroke": "#425a70",
+                "strokeWidth": 1.2,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                }
+              }
+            },
+            "data": {
+              "type": "tm.Flow",
+              "name": "F08 Webhook: pago, orden, importe y firma (HTTPS / JSON)",
+              "description": "Unidireccional",
+              "protocol": "HTTPS / JSON",
+              "isEncrypted": true,
+              "isBidirectional": false,
+              "isPublicNetwork": true,
+              "isTrustBoundary": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "threatId": "7d5428e7-b5bf-45b5-857c-55734008edd6",
+                  "number": 1,
+                  "title": "S01 - Un atacante envía un webhook falso a la API y obtiene una inscripción pagada sin realizar el cobro.",
+                  "description": "Un atacante envía un webhook falso a la API y obtiene una inscripción pagada sin realizar el cobro. I: permite fraude de entradas. P: el endpoint recibe solicitudes públicas.",
+                  "type": "Spoofing",
+                  "modelType": "STRIDE",
+                  "severity": "High",
+                  "status": "Open",
+                  "score": "9",
+                  "mitigation": "Mitigar: Verificar firma sobre el cuerpo original, timestamp con tolerancia de 5 minutos y emisor; rechazar mensajes inválidos antes de actualizar pagos."
+                },
+                {
+                  "threatId": "cbb5269a-cee3-4fbb-9bea-152b1210d440",
+                  "number": 9,
+                  "title": "R01 - Un usuario niega un pago o el atacante repite una notificación y la universidad no puede reconstruir qué evento cambió la inscripción.",
+                  "description": "Un usuario niega un pago o el atacante repite una notificación y la universidad no puede reconstruir qué evento cambió la inscripción. I: dificulta resolver disputas. P: depende de registros insuficientes.",
+                  "type": "Repudiation",
+                  "modelType": "STRIDE",
+                  "severity": "Medium",
+                  "status": "Open",
+                  "score": "4",
+                  "mitigation": "Mitigar: Registrar ID único del proveedor, orden, resultado de firma, transición y correlación; deduplicar eventos y conservar auditoría protegida sin secretos."
+                }
+              ]
+            }
+          },
+          {
+            "id": "F09",
+            "shape": "flow",
+            "zIndex": 0,
+            "source": {
+              "cell": "P03"
+            },
+            "target": {
+              "cell": "X03"
+            },
+            "connector": "normal",
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "F09 Correo: entrada QR o recuperación\n(HTTPS / API)",
+                    "fontSize": 10
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "attrs": {
+              "line": {
+                "stroke": "#425a70",
+                "strokeWidth": 1.2,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                }
+              }
+            },
+            "data": {
+              "type": "tm.Flow",
+              "name": "F09 Correo: entrada QR o recuperación (HTTPS / API)",
+              "description": "Unidireccional",
+              "protocol": "HTTPS / API",
+              "isEncrypted": true,
+              "isBidirectional": false,
+              "isPublicNetwork": true,
+              "isTrustBoundary": false,
+              "hasOpenThreats": false,
+              "threats": []
+            },
+            "vertices": [
+              {
+                "x": 1300,
+                "y": 950
+              },
+              {
+                "x": 1400,
+                "y": 1060
+              }
+            ]
+          },
+          {
+            "id": "F10",
+            "shape": "flow",
+            "zIndex": 0,
+            "source": {
+              "cell": "X03"
+            },
+            "target": {
+              "cell": "A02"
+            },
+            "connector": "normal",
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "F10 Entrega QR o enlace de recuperación\n(SMTP / TLS)",
+                    "fontSize": 10
+                  }
+                },
+                "position": 0.4
+              }
+            ],
+            "attrs": {
+              "line": {
+                "stroke": "#425a70",
+                "strokeWidth": 1.2,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                }
+              }
+            },
+            "data": {
+              "type": "tm.Flow",
+              "name": "F10 Entrega QR o enlace de recuperación (SMTP / TLS)",
+              "description": "Unidireccional",
+              "protocol": "SMTP / TLS",
+              "isEncrypted": true,
+              "isBidirectional": false,
+              "isPublicNetwork": true,
+              "isTrustBoundary": false,
+              "hasOpenThreats": false,
+              "threats": []
+            },
+            "vertices": [
+              {
+                "x": 1440,
+                "y": 1300
+              },
+              {
+                "x": 300,
+                "y": 1300
+              },
+              {
+                "x": 300,
+                "y": 380
+              }
+            ]
+          },
+          {
+            "id": "F11",
+            "shape": "flow",
+            "zIndex": 0,
+            "source": {
+              "cell": "A04"
+            },
+            "target": {
+              "cell": "P04"
+            },
+            "connector": "normal",
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "F11 Lectura QR y sesión del operador\n(Interfaz local / cámara)",
+                    "fontSize": 10
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "attrs": {
+              "line": {
+                "stroke": "#425a70",
+                "strokeWidth": 1.2,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                }
+              }
+            },
+            "data": {
+              "type": "tm.Flow",
+              "name": "F11 Lectura QR y sesión del operador (Interfaz local / cámara)",
+              "description": "Solicitud y respuesta",
+              "protocol": "Interfaz local / cámara",
+              "isEncrypted": false,
+              "isBidirectional": true,
+              "isPublicNetwork": true,
+              "isTrustBoundary": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "threatId": "7b277f29-0e80-492c-bd6b-8f5e5e2ff1ef",
+                  "number": 4,
+                  "title": "S04 - Un atacante copia un QR de un correo ajeno y llega primero a puerta para obtener el acceso de la víctima.",
+                  "description": "Un atacante copia un QR de un correo ajeno y llega primero a puerta para obtener el acceso de la víctima. I: afecta una entrada y desplaza al dueño. P: necesita conseguir el QR vigente.",
+                  "type": "Spoofing",
+                  "modelType": "STRIDE",
+                  "severity": "Medium",
+                  "status": "Open",
+                  "score": "4",
+                  "mitigation": "Mitigar: QR opaco aleatorio de al menos 128 bits, sin datos personales, ligado al evento; permitir revocar y reemitir y verificar identidad cuando el evento lo requiera."
+                },
+                {
+                  "threatId": "865c5a48-5cbe-4ec2-b7f1-327581207590",
+                  "number": 20,
+                  "title": "D04 - Un atacante envía muchos QR aleatorios a validación y provoca filas largas al agotar la capacidad de puerta.",
+                  "description": "Un atacante envía muchos QR aleatorios a validación y provoca filas largas al agotar la capacidad de puerta. I: impide ingreso durante el evento. P: requiere llegar al endpoint y superar autenticación si existe.",
+                  "type": "Denial of service",
+                  "modelType": "STRIDE",
+                  "severity": "High",
+                  "status": "Open",
+                  "score": "6",
+                  "mitigation": "Mitigar: Autenticar dispositivo y operador, limitar por evento/operador/IP, rechazar formatos inválidos antes de consultar y reservar capacidad para puerta."
+                }
+              ]
+            }
+          },
+          {
+            "id": "F12",
+            "shape": "flow",
+            "zIndex": 0,
+            "source": {
+              "cell": "P04"
+            },
+            "target": {
+              "cell": "P03"
+            },
+            "connector": "normal",
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "F12 QR, evento, operador / válido o usado\n(HTTPS / JSON)",
+                    "fontSize": 10
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "attrs": {
+              "line": {
+                "stroke": "#425a70",
+                "strokeWidth": 1.2,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                }
+              }
+            },
+            "data": {
+              "type": "tm.Flow",
+              "name": "F12 QR, evento, operador / válido o usado (HTTPS / JSON)",
+              "description": "Solicitud y respuesta",
+              "protocol": "HTTPS / JSON",
+              "isEncrypted": true,
+              "isBidirectional": true,
+              "isPublicNetwork": true,
+              "isTrustBoundary": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "threatId": "accfe5cb-8425-4b24-badf-a81f46d5dcf1",
+                  "number": 5,
+                  "title": "T01 - Dos personas presentan el mismo QR al mismo tiempo",
+                  "description": "Dos personas presentan el mismo QR al mismo tiempo; ambas reciben válido si la API separa consulta y actualización. I: permite accesos duplicados. P: dos solicitudes paralelas bastan si no hay atomicidad.",
+                  "type": "Tampering",
+                  "modelType": "STRIDE",
+                  "severity": "High",
+                  "status": "Open",
+                  "score": "9",
+                  "mitigation": "Mitigar: Validar pago, evento y uso en una sola transacción; UPDATE condicional de usado=false con retorno de una sola fila; un único ganador bajo concurrencia."
+                },
+                {
+                  "threatId": "b368cf54-494c-45d4-a788-4eb163edee3c",
+                  "number": 10,
+                  "title": "R02 - Un empleado niega haber validado una entrada irregular y no existe relación entre el escaneo y su cuenta.",
+                  "description": "Un empleado niega haber validado una entrada irregular y no existe relación entre el escaneo y su cuenta. I: impide atribuir accesos indebidos. P: ocurre si se comparten cuentas o faltan logs.",
+                  "type": "Repudiation",
+                  "modelType": "STRIDE",
+                  "severity": "Medium",
+                  "status": "Open",
+                  "score": "4",
+                  "mitigation": "Mitigar: Cuentas individuales de puerta; registrar operador, evento, identificador resumido de entrada, hora y resultado en auditoría de solo anexado."
+                }
+              ]
+            }
+          },
+          {
+            "id": "F13",
+            "shape": "flow",
+            "zIndex": 0,
+            "source": {
+              "cell": "A03"
+            },
+            "target": {
+              "cell": "P03"
+            },
+            "connector": "normal",
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "F13 Afiches y gestión de evento\n(HTTPS / multipart + JSON)",
+                    "fontSize": 10
+                  }
+                },
+                "position": 0.45
+              }
+            ],
+            "attrs": {
+              "line": {
+                "stroke": "#425a70",
+                "strokeWidth": 1.2,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                }
+              }
+            },
+            "data": {
+              "type": "tm.Flow",
+              "name": "F13 Afiches y gestión de evento (HTTPS / multipart + JSON)",
+              "description": "Solicitud y respuesta",
+              "protocol": "HTTPS / multipart + JSON",
+              "isEncrypted": true,
+              "isBidirectional": true,
+              "isPublicNetwork": true,
+              "isTrustBoundary": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "threatId": "f46dd627-795a-49fe-af3c-2714b18ca613",
+                  "number": 8,
+                  "title": "T04 - Un organizador malicioso sube un SVG con script como afiche y altera la sesión de quien lo visualiza.",
+                  "description": "Un organizador malicioso sube un SVG con script como afiche y altera la sesión de quien lo visualiza. I: puede robar sesión o cambiar eventos. P: exige admitir contenido activo.",
+                  "type": "Tampering",
+                  "modelType": "STRIDE",
+                  "severity": "High",
+                  "status": "Open",
+                  "score": "6",
+                  "mitigation": "Eliminar: Excluir SVG y HTML; admitir solo JPEG/PNG, decodificar y recodificar en servidor, limitar tamaño a 5 MB y servir desde origen separado sin credenciales."
+                },
+                {
+                  "threatId": "d6ed18da-1660-4d4b-8d5c-ec6aa6ccaa28",
+                  "number": 18,
+                  "title": "D02 - Un organizador sube imágenes comprimidas con dimensiones enormes y agota memoria del contenedor.",
+                  "description": "Un organizador sube imágenes comprimidas con dimensiones enormes y agota memoria del contenedor. I: interrumpe el servicio mientras se recupera. P: requiere una cuenta de organizador.",
+                  "type": "Denial of service",
+                  "modelType": "STRIDE",
+                  "severity": "Medium",
+                  "status": "Open",
+                  "score": "4",
+                  "mitigation": "Mitigar: Limitar bytes, dimensiones y píxeles decodificados; procesar en worker con memoria y timeout acotados; rechazar imagen fuera de límite."
+                },
+                {
+                  "threatId": "da6eaa9c-976f-4559-a5bd-41fef9b47d73",
+                  "number": 24,
+                  "title": "E04 - Un organizador manipula la clave de objeto y sobrescribe afiches o CSV de otro organizador usando permisos amplios del bucket.",
+                  "description": "Un organizador manipula la clave de objeto y sobrescribe afiches o CSV de otro organizador usando permisos amplios del bucket. I: altera archivos y listas de terceros. P: exige credenciales de organizador y validación débil de claves.",
+                  "type": "Elevation of privilege",
+                  "modelType": "STRIDE",
+                  "severity": "High",
+                  "status": "Open",
+                  "score": "6",
+                  "mitigation": "Mitigar: Generar claves en servidor, separar prefijos de afiches y CSV, comprobar dueño/evento y limitar IAM de carga y lectura por función."
+                }
+              ]
+            },
+            "vertices": [
+              {
+                "x": 370,
+                "y": 460
+              },
+              {
+                "x": 780,
+                "y": 460
+              }
+            ]
+          },
+          {
+            "id": "F14",
+            "shape": "flow",
+            "zIndex": 0,
+            "source": {
+              "cell": "A03"
+            },
+            "target": {
+              "cell": "P03"
+            },
+            "connector": "normal",
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "F14 Solicitud de lista y exportación CSV\n(HTTPS / JSON)",
+                    "fontSize": 10
+                  }
+                },
+                "position": 0.35
+              }
+            ],
+            "attrs": {
+              "line": {
+                "stroke": "#425a70",
+                "strokeWidth": 1.2,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                }
+              }
+            },
+            "data": {
+              "type": "tm.Flow",
+              "name": "F14 Solicitud de lista y exportación CSV (HTTPS / JSON)",
+              "description": "Solicitud y respuesta",
+              "protocol": "HTTPS / JSON",
+              "isEncrypted": true,
+              "isBidirectional": true,
+              "isPublicNetwork": true,
+              "isTrustBoundary": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "threatId": "81affa46-a438-4e1c-8661-7cc53f0db62e",
+                  "number": 7,
+                  "title": "T03 - Un inscrito guarda un nombre que empieza con fórmula",
+                  "description": "Un inscrito guarda un nombre que empieza con fórmula; al abrir el CSV, el organizador ejecuta contenido en su hoja de cálculo. I: compromete el entorno del organizador. P: requiere exportar y abrir en un visor que evalúe fórmulas.",
+                  "type": "Tampering",
+                  "modelType": "STRIDE",
+                  "severity": "High",
+                  "status": "Open",
+                  "score": "6",
+                  "mitigation": "Mitigar: Exportar todos los campos como texto seguro; neutralizar =,+,-,@ y prefijos de control tras normalizar; probar en el visor usado por la universidad."
+                },
+                {
+                  "threatId": "51b42387-2ed7-4716-8620-10f27d2b96d3",
+                  "number": 11,
+                  "title": "R03 - Un organizador descarga el listado y niega la exportación",
+                  "description": "Un organizador descarga el listado y niega la exportación; la universidad no puede rastrear la salida de datos. I: impide investigar exposición de datos personales. P: requiere falta de auditoría de exportaciones.",
+                  "type": "Repudiation",
+                  "modelType": "STRIDE",
+                  "severity": "High",
+                  "status": "Open",
+                  "score": "6",
+                  "mitigation": "Mitigar: Auditar solicitante, evento, cantidad de filas, archivo y descarga; restringir borrado y alertar sobre volúmenes atípicos."
+                },
+                {
+                  "threatId": "82b58764-262e-44a7-9603-652c1435608a",
+                  "number": 19,
+                  "title": "D03 - Un organizador solicita exportaciones repetidas y consume conexiones y CPU de PostgreSQL.",
+                  "description": "Un organizador solicita exportaciones repetidas y consume conexiones y CPU de PostgreSQL. I: retrasa pagos y validación de acceso. P: requiere sesión con permiso de exportación.",
+                  "type": "Denial of service",
+                  "modelType": "STRIDE",
+                  "severity": "Medium",
+                  "status": "Open",
+                  "score": "4",
+                  "mitigation": "Mitigar: Una exportación activa por organizador, cola con cuota, límite de filas y timeout; separar pool y probar saturación sin bloquear escaneo."
+                }
+              ]
+            },
+            "vertices": [
+              {
+                "x": 380,
+                "y": 610
+              },
+              {
+                "x": 820,
+                "y": 610
+              }
+            ]
+          },
+          {
+            "id": "F15",
+            "shape": "flow",
+            "zIndex": 0,
+            "source": {
+              "cell": "A03"
+            },
+            "target": {
+              "cell": "D02"
+            },
+            "connector": "normal",
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "F15 Descarga autorizada de CSV / afiche\n(HTTPS / URL firmada)",
+                    "fontSize": 10
+                  }
+                },
+                "position": 0.65
+              }
+            ],
+            "attrs": {
+              "line": {
+                "stroke": "#425a70",
+                "strokeWidth": 1.2,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                }
+              }
+            },
+            "data": {
+              "type": "tm.Flow",
+              "name": "F15 Descarga autorizada de CSV / afiche (HTTPS / URL firmada)",
+              "description": "Solicitud y respuesta",
+              "protocol": "HTTPS / URL firmada",
+              "isEncrypted": true,
+              "isBidirectional": true,
+              "isPublicNetwork": true,
+              "isTrustBoundary": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "threatId": "e840a206-5f09-4cf0-ac20-999388986e1a",
+                  "number": 13,
+                  "title": "I01 - Un organizador cambia el identificador de exportación o reutiliza un enlace público y obtiene el CSV de otro evento.",
+                  "description": "Un organizador cambia el identificador de exportación o reutiliza un enlace público y obtiene el CSV de otro evento. I: revela nombre, correo, carné y teléfono en conjunto. P: basta manipular una referencia si falta autorización.",
+                  "type": "Information disclosure",
+                  "modelType": "STRIDE",
+                  "severity": "High",
+                  "status": "Open",
+                  "score": "9",
+                  "mitigation": "Mitigar: Autorizar por usuario y evento antes de generar y descargar; bucket privado, URL firmada de 5 minutos tras autorización y borrado del CSV en 24 horas."
+                }
+              ]
+            },
+            "vertices": [
+              {
+                "x": 350,
+                "y": 400
+              },
+              {
+                "x": 1380,
+                "y": 400
+              }
+            ]
+          },
+          {
+            "id": "F16",
+            "shape": "flow",
+            "zIndex": 0,
+            "source": {
+              "cell": "A05"
+            },
+            "target": {
+              "cell": "P02"
+            },
+            "connector": "normal",
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "F16 Acceso al panel /admin\n(HTTPS)",
+                    "fontSize": 10
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "attrs": {
+              "line": {
+                "stroke": "#425a70",
+                "strokeWidth": 1.2,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                }
+              }
+            },
+            "data": {
+              "type": "tm.Flow",
+              "name": "F16 Acceso al panel /admin (HTTPS)",
+              "description": "Solicitud y respuesta",
+              "protocol": "HTTPS",
+              "isEncrypted": true,
+              "isBidirectional": true,
+              "isPublicNetwork": true,
+              "isTrustBoundary": false,
+              "hasOpenThreats": false,
+              "threats": []
+            }
+          },
+          {
+            "id": "F17",
+            "shape": "flow",
+            "zIndex": 0,
+            "source": {
+              "cell": "P02"
+            },
+            "target": {
+              "cell": "P03"
+            },
+            "connector": "normal",
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "F17 Usuarios, roles y reportes\n(HTTPS / JSON)",
+                    "fontSize": 10
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "attrs": {
+              "line": {
+                "stroke": "#425a70",
+                "strokeWidth": 1.2,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                }
+              }
+            },
+            "data": {
+              "type": "tm.Flow",
+              "name": "F17 Usuarios, roles y reportes (HTTPS / JSON)",
+              "description": "Solicitud y respuesta",
+              "protocol": "HTTPS / JSON",
+              "isEncrypted": true,
+              "isBidirectional": true,
+              "isPublicNetwork": true,
+              "isTrustBoundary": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "threatId": "c7d9420e-876c-45bd-adb2-7caf7cd5fb45",
+                  "number": 12,
+                  "title": "R04 - Un administrador cambia roles y luego niega el cambio porque puede borrar el registro en el mismo sistema.",
+                  "description": "Un administrador cambia roles y luego niega el cambio porque puede borrar el registro en el mismo sistema. I: oculta la elevación de privilegios. P: requiere acceso administrativo y logs alterables.",
+                  "type": "Repudiation",
+                  "modelType": "STRIDE",
+                  "severity": "High",
+                  "status": "Open",
+                  "score": "6",
+                  "mitigation": "Mitigar: Enviar cambios de roles con valores anterior/nuevo a un servicio de auditoría separado; impedir borrado a la identidad de la API y del administrador funcional."
+                },
+                {
+                  "threatId": "4ae51257-890c-4a09-9061-78dda86249ac",
+                  "number": 21,
+                  "title": "E01 - Un estudiante llama directamente endpoints administrativos o manda role=admin y obtiene control de usuarios y roles.",
+                  "description": "Un estudiante llama directamente endpoints administrativos o manda role=admin y obtiene control de usuarios y roles. I: compromete toda la administración. P: es trivial invocar la API si solo se oculta /admin.",
+                  "type": "Elevation of privilege",
+                  "modelType": "STRIDE",
+                  "severity": "High",
+                  "status": "Open",
+                  "score": "9",
+                  "mitigation": "Mitigar: Denegar por defecto en API; autorización por acción y recurso, ignorar role del cliente y MFA para administradores; probar todos los roles."
+                }
+              ]
+            },
+            "vertices": [
+              {
+                "x": 780,
+                "y": 850
+              },
+              {
+                "x": 870,
+                "y": 730
+              }
+            ]
+          },
+          {
+            "id": "F18",
+            "shape": "flow",
+            "zIndex": 0,
+            "source": {
+              "cell": "P03"
+            },
+            "target": {
+              "cell": "D01"
+            },
+            "connector": "normal",
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "F18 Usuarios, eventos, inscripciones y pagos\n(PostgreSQL / TLS)",
+                    "fontSize": 10
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "attrs": {
+              "line": {
+                "stroke": "#425a70",
+                "strokeWidth": 1.2,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                }
+              }
+            },
+            "data": {
+              "type": "tm.Flow",
+              "name": "F18 Usuarios, eventos, inscripciones y pagos (PostgreSQL / TLS)",
+              "description": "Solicitud y respuesta",
+              "protocol": "PostgreSQL / TLS",
+              "isEncrypted": true,
+              "isBidirectional": true,
+              "isPublicNetwork": true,
+              "isTrustBoundary": false,
+              "hasOpenThreats": false,
+              "threats": []
+            }
+          },
+          {
+            "id": "F19",
+            "shape": "flow",
+            "zIndex": 0,
+            "source": {
+              "cell": "P03"
+            },
+            "target": {
+              "cell": "D02"
+            },
+            "connector": "normal",
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "F19 Escritura / lectura de afiches y CSV\n(HTTPS / API objetos)",
+                    "fontSize": 10
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "attrs": {
+              "line": {
+                "stroke": "#425a70",
+                "strokeWidth": 1.2,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                }
+              }
+            },
+            "data": {
+              "type": "tm.Flow",
+              "name": "F19 Escritura / lectura de afiches y CSV (HTTPS / API objetos)",
+              "description": "Solicitud y respuesta",
+              "protocol": "HTTPS / API objetos",
+              "isEncrypted": true,
+              "isBidirectional": true,
+              "isPublicNetwork": true,
+              "isTrustBoundary": false,
+              "hasOpenThreats": false,
+              "threats": []
+            }
+          },
+          {
+            "id": "F20",
+            "shape": "flow",
+            "zIndex": 0,
+            "source": {
+              "cell": "P03"
+            },
+            "target": {
+              "cell": "D03"
+            },
+            "connector": "normal",
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "F20 Eventos de auditoría sin secretos\n(HTTPS / JSON)",
+                    "fontSize": 10
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "attrs": {
+              "line": {
+                "stroke": "#425a70",
+                "strokeWidth": 1.2,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                }
+              }
+            },
+            "data": {
+              "type": "tm.Flow",
+              "name": "F20 Eventos de auditoría sin secretos (HTTPS / JSON)",
+              "description": "Unidireccional",
+              "protocol": "HTTPS / JSON",
+              "isEncrypted": true,
+              "isBidirectional": false,
+              "isPublicNetwork": true,
+              "isTrustBoundary": false,
+              "hasOpenThreats": false,
+              "threats": []
+            }
+          },
+          {
+            "id": "F21",
+            "shape": "flow",
+            "zIndex": 0,
+            "source": {
+              "cell": "P03"
+            },
+            "target": {
+              "cell": "X01"
+            },
+            "connector": "normal",
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "F21 Código / token y claves de validación\n(HTTPS / OIDC + JWKS)",
+                    "fontSize": 10
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "attrs": {
+              "line": {
+                "stroke": "#425a70",
+                "strokeWidth": 1.2,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                }
+              }
+            },
+            "data": {
+              "type": "tm.Flow",
+              "name": "F21 Código / token y claves de validación (HTTPS / OIDC + JWKS)",
+              "description": "Solicitud y respuesta",
+              "protocol": "HTTPS / OIDC + JWKS",
+              "isEncrypted": true,
+              "isBidirectional": true,
+              "isPublicNetwork": true,
+              "isTrustBoundary": false,
+              "hasOpenThreats": false,
+              "threats": []
+            }
+          },
+          {
+            "id": "P05",
+            "shape": "process",
+            "zIndex": 1,
+            "position": {
+              "x": 450,
+              "y": 20
+            },
+            "size": {
+              "width": 190,
+              "height": 100
+            },
+            "attrs": {
+              "label": {
+                "text": "P05\nCDN de React",
+                "fontSize": 14
+              }
+            },
+            "data": {
+              "type": "tm.Process",
+              "name": "P05 CDN de React",
+              "hasOpenThreats": false,
+              "threats": []
+            }
+          },
+          {
+            "id": "F22",
+            "shape": "flow",
+            "zIndex": 0,
+            "source": {
+              "cell": "P05"
+            },
+            "target": {
+              "cell": "P01"
+            },
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "F22 HTML / JS\n(HTTPS)",
+                    "fontSize": 11
+                  }
+                },
+                "position": 0.5
+              }
+            ],
+            "attrs": {
+              "line": {
+                "targetMarker": {
+                  "name": "block"
+                }
+              }
+            },
+            "data": {
+              "type": "tm.Flow",
+              "name": "F22 React estático (HTTPS)",
+              "hasOpenThreats": false,
+              "threats": []
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
