@@ -10,7 +10,7 @@ Analizo el diseño de EventosU: React servido desde un CDN, API Node.js con JWT,
 Quedan fuera los sistemas internos de proveedores, datos de tarjetas y controles físicos ajenos a la aplicación. Es un ejercicio de diseño: los controles y pruebas están propuestos, no implementados. Los supuestos completos están en el informe.
 
 ## Estado de la entrega
-Consulta el [informe](docs/informe.pdf), la [tabla de amenazas](docs/amenazas.csv) y la [revisión de Carlos](docs/revision.md). La [lista de pendientes](docs/PENDIENTES.md) registra el cierre de la entrega.
+Consulta el [informe](docs/informe.pdf), la [tabla de amenazas](docs/amenazas.csv) y la [revisión de Carlos](docs/revision.md). La [lista de cierre](docs/PENDIENTES.md) registra las verificaciones y el paso de envío pendiente. Las observaciones técnicas de Carlos se resolvieron en la versión final.
 
 ## Estructura
 ```text
@@ -51,3 +51,13 @@ Abrir las imágenes originales y ampliarlas para leer los flujos.
 - [OWASP ASVS 4.0.3: lógica de negocio](https://github.com/OWASP/ASVS/blob/v4.0.3/4.0/en/0x19-V11-BusLogic.md)
 
 La referencia ASVS se fija en 4.0.3 para conservar identificadores consistentes; no se presenta como la versión más reciente.
+
+
+## Verificación final
+- 24 amenazas: cuatro por cada categoría STRIDE; JSON, CSV e informe consistentes.
+- Riesgos: cinco críticos (9), trece altos (6), seis medios (cinco de 4 y uno de 3).
+- D04 asociada a F12; I04 aceptada con justificación, responsable de diseño y fecha de revisión.
+- Modelo final importado en Threat Dragon 2.6.2; [evidencia](docs/validacion-modelo-final.png).
+- Aportes de DouglasPrez y Daniel-1A conservados en el historial; [PR de Carlos](https://github.com/DouglasPrez/eventosu-threat-model/pull/1).
+
+El material está preparado para entregar. Solo falta subir el enlace a la plataforma del curso y confirmar que el catedrático pueda consultarlo. No se presentan pruebas de seguridad como ejecutadas.
