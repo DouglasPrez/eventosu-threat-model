@@ -1267,19 +1267,19 @@
               "isBidirectional": true,
               "isPublicNetwork": true,
               "isTrustBoundary": false,
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "threats": [
                 {
                   "threatId": "802794da-7abf-4d0e-87dc-25c6a4de1e76",
                   "number": 16,
                   "title": "I04 - Un visitante automatiza la lectura del catálogo y copia nombres, fechas y precios publicados.",
-                  "description": "Un visitante automatiza la lectura del catálogo y copia nombres, fechas y precios publicados. I: los datos ya son públicos y no incluyen inscritos. P: la automatización es sencilla pero el interés es incierto.",
+                  "description": "Un visitante automatiza la lectura del catálogo y copia nombres, fechas y precios publicados. I: solo copia datos ya publicados, sin inscritos ni secretos. P: cualquier visitante puede automatizar peticiones simples al catálogo público sin requisitos adicionales.",
                   "type": "Information disclosure",
                   "modelType": "STRIDE",
-                  "severity": "Low",
+                  "severity": "Medium",
                   "status": "Accepted",
-                  "score": "2",
-                  "mitigation": "Aceptar: Aceptar solo la copia del catálogo público; responsable: dueño funcional de EventosU; revisar por evento o en 90 días. Mantener límites de lectura; si hay caída se aplica D01."
+                  "score": "3",
+                  "mitigation": "Aceptar: Aceptar la copia del catálogo público porque su difusión es parte del servicio; no se justifica impedirla. Responsable del riesgo en el diseño: dueño funcional de EventosU. Revisar antes de cada evento o en 90 días. Mantener límites de lectura; la indisponibilidad se trata como D01."
                 }
               ]
             }
@@ -1928,18 +1928,6 @@
                   "status": "Open",
                   "score": "4",
                   "mitigation": "Mitigar: QR opaco aleatorio de al menos 128 bits, sin datos personales, ligado al evento; permitir revocar y reemitir y verificar identidad cuando el evento lo requiera."
-                },
-                {
-                  "threatId": "865c5a48-5cbe-4ec2-b7f1-327581207590",
-                  "number": 20,
-                  "title": "D04 - Un atacante envía muchos QR aleatorios a validación y provoca filas largas al agotar la capacidad de puerta.",
-                  "description": "Un atacante envía muchos QR aleatorios a validación y provoca filas largas al agotar la capacidad de puerta. I: impide ingreso durante el evento. P: requiere llegar al endpoint y superar autenticación si existe.",
-                  "type": "Denial of service",
-                  "modelType": "STRIDE",
-                  "severity": "High",
-                  "status": "Open",
-                  "score": "6",
-                  "mitigation": "Mitigar: Autenticar dispositivo y operador, limitar por evento/operador/IP, rechazar formatos inválidos antes de consultar y reservar capacidad para puerta."
                 }
               ]
             }
@@ -2012,6 +2000,18 @@
                   "status": "Open",
                   "score": "4",
                   "mitigation": "Mitigar: Cuentas individuales de puerta; registrar operador, evento, identificador resumido de entrada, hora y resultado en auditoría de solo anexado."
+                },
+                {
+                  "threatId": "865c5a48-5cbe-4ec2-b7f1-327581207590",
+                  "number": 20,
+                  "title": "D04 - Un atacante envía muchos QR aleatorios a validación y provoca filas largas al agotar la capacidad de puerta.",
+                  "description": "Un atacante envía muchos QR aleatorios a validación y provoca filas largas al agotar la capacidad de puerta. I: impide ingreso durante el evento. P: requiere llegar al endpoint y superar autenticación si existe.",
+                  "type": "Denial of service",
+                  "modelType": "STRIDE",
+                  "severity": "High",
+                  "status": "Open",
+                  "score": "6",
+                  "mitigation": "Mitigar: Autenticar dispositivo y operador, limitar por evento/operador/IP, rechazar formatos inválidos antes de consultar y reservar capacidad para puerta."
                 }
               ]
             }
@@ -2165,7 +2165,7 @@
                   "severity": "High",
                   "status": "Open",
                   "score": "6",
-                  "mitigation": "Mitigar: Exportar todos los campos como texto seguro; neutralizar =,+,-,@ y prefijos de control tras normalizar; probar en el visor usado por la universidad."
+                  "mitigation": "Mitigar: Exportar campos como texto seguro; neutralizar =,+,-,@ y prefijos de control tras normalizar. Probar esos cuatro prefijos y tabulaciones/saltos iniciales en nombre, correo, carné y teléfono; el visor aprobado debe mostrarlos como texto, sin evaluar fórmulas."
                 },
                 {
                   "threatId": "51b42387-2ed7-4716-8620-10f27d2b96d3",
