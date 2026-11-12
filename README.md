@@ -7,10 +7,10 @@
 ## Alcance
 Analizo el diseño de EventosU: React servido desde un CDN, API Node.js con JWT, PostgreSQL, bucket, app de puerta, panel /admin e integraciones con Microsoft Entra ID, pagos y correo. Incluyo registro, recuperación, inscripciones, pagos, entradas QR, afiches, exportaciones CSV y auditoría.
 
-Quedan fuera los sistemas internos de proveedores, datos de tarjetas y controles físicos ajenos a la aplicación. Es un ejercicio de diseño: los controles y pruebas están propuestos, no implementados. Los supuestos completos se documentarán en el informe final.
+Quedan fuera los sistemas internos de proveedores, datos de tarjetas y controles físicos ajenos a la aplicación. Es un ejercicio de diseño: los controles y pruebas están propuestos, no implementados. Los supuestos completos están en el informe.
 
 ## Estado de la entrega
-Esta primera versión contiene el modelo y los diagramas. El informe y la tabla CSV están pendientes de revisión y publicación por Carlos desde su propia cuenta. El repositorio estará listo para entregar cuando se complete [la lista de pendientes](docs/PENDIENTES.md).
+Consulta el [informe](docs/informe.pdf), la [tabla de amenazas](docs/amenazas.csv) y la [revisión de Carlos](docs/revision.md). La [lista de pendientes](docs/PENDIENTES.md) registra el cierre de la entrega.
 
 ## Estructura
 ```text
@@ -21,10 +21,11 @@ eventosu-threat-model/
     ├── dfd-nivel-0.png
     ├── dfd-nivel-1.png
     ├── captura-threat-dragon.png
+    ├── informe.pdf
+    ├── amenazas.csv
+    ├── revision.md
     └── PENDIENTES.md
 ```
-
-Archivos previstos para completar la entrega: `docs/informe.pdf` y `docs/amenazas.csv`.
 
 ## Cómo abrir el modelo
 1. Abrir [OWASP Threat Dragon](https://www.threatdragon.com/) y elegir sesión local.
